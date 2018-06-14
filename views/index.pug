@@ -1,50 +1,5 @@
 extends layout
 
 block content
-  script(src="/javascripts/index.js")
-  form.form-horizontal(action="/upload" method="post" enctype="multipart/form-data")
-    div.form-group.row
-      label.col-2.col-form-label File Origin
-      div.col-5
-        select.form-control(name="fileOrigin" id="fileOrigin")
-          option(selected="selected")
-          option(value="1") RichClient
-          option(value="2") MobClient
-          option(value="3") Shared (between RichClient and MobClient
-          option(value="4") Backend
-    div.form-group.row
-      label.col-2.col-form-label Language
-      div.col-5
-        select.form-control(name="language" id="language")
-          option(value="en") English
-          option(value="fr") French
-          option(value="de") German
-          option(value="es") Spanish
-          option(value="ja") Japanese
-          option(value="pt_BR") Portuguese
-    div.form-group.row
-      label.col-2.col-form-label Release Name
-      div.col-5
-        select.form-control(name="releaseName" id="releaseName")
-          option(selected="selected")
-          each val in releaseNames
-            option(value=val.name)=val.name
-    div.form-group.row
-      label.col-2.col-form-label Version Control Revision #
-      div.col-5
-        input.form-control(name="vcRevisionNumber" id="vcRevisionNumber")
-    div.form-group.row
-      label.col-2.col-form-label Upload File
-      div.col-5
-        input.form-control(type="file" name="propertyFile" id="propertyFile")
-
-
-    button.btn.btn-primary(type="submit" name="submit") Submit
-
-    button.btn.btn-default(type="button" onclick="fixData()") Fix Data
-
-    button.btn.btn-info(type="button" onclick="populateGeneratedPropertiesFileData()") Populate New Data
-    button.btn.btn-success(type="button" onclick="downloadFrontEndInterfaceFile()") Download UI Interface file
-    button.btn.btn-warning(type="button" onclick="downloadNewPropertiesFile()") Download New Properties file
-    button.btn.btn-error(type="button" onclick="window.open(\"/generateReport\", '_blank')") Download Report
-
+  script(src="/javascripts/indexFE.js")
+  div Hello
