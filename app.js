@@ -12,17 +12,17 @@ var index = require('./routes/indexBE');
 
 var app = express();
 
-var properties = PropertiesReader('deployment.properties');
-var mysqlConnection = mysql.createConnection({
-    host: properties.path().database.host,
-    user: properties.path().database.user,
-    password: properties.path().database.password,
-    database: properties.path().database.schema
-});
+// var properties = PropertiesReader('deployment.properties');
+// var mysqlConnection = mysql.createConnection({
+//     host: properties.path().database.host,
+//     user: properties.path().database.user,
+//     password: properties.path().database.password,
+//     database: properties.path().database.schema
+// });
 
-mysqlConnection.connect(function(err) {
-    if (err) throw err;
-});
+// mysqlConnection.connect(function(err) {
+//     if (err) throw err;
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,19 +36,19 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
-    req.mysqlConnection = mysqlConnection;
-    next();
-});
+// app.use(function(req, res, next) {
+//     req.mysqlConnection = mysqlConnection;
+//     next();
+// });
 
 app.use('/', index);
-app.use('/addReleases', addReleases);
-app.use('/showDuplicates', showDuplicates);
-app.use('/search', search);
-app.use('/translate', translate);
-app.use('/consolidateDuplicates', consolidateDuplicates);
-app.use('/showProposedKeyValuePairs', showProposedKeyValuePairs);
-app.use('/otherLanguages', otherLanguages);
+// app.use('/addReleases', addReleases);
+// app.use('/showDuplicates', showDuplicates);
+// app.use('/search', search);
+// app.use('/translate', translate);
+// app.use('/consolidateDuplicates', consolidateDuplicates);
+// app.use('/showProposedKeyValuePairs', showProposedKeyValuePairs);
+// app.use('/otherLanguages', otherLanguages);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

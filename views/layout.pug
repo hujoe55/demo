@@ -1,11 +1,3 @@
-mixin MenuItem(pageName, menuItemText)
-  li.nav-item
-    - var href = "/" + pageName;
-    if (currentPage === pageName)
-      a.nav-link.active(href=href)=menuItemText
-    else
-      a.nav-link(href=href)=menuItemText
-
 doctype html
 html
   head
@@ -15,18 +7,11 @@ html
     script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
-  body(onload=(currentPage === 'consolidateDuplicates' ? 'addPasteHandler();' : ''))
+  body
     div.container-fluid
       div.row(style="border: 1px solid grey; border-radius: .25rem;")
         ul.nav.nav-pills
-          +MenuItem('', 'Process Property Files')
-          +MenuItem('addReleases', 'Add Releases')
-          +MenuItem('showDuplicates', 'Show Duplicates')
-          +MenuItem('search', 'Search Strings')
-          +MenuItem('translate', 'Translate Strings')
-          +MenuItem('consolidateDuplicates', 'Consolidate Duplicates')
-          +MenuItem('showProposedKeyValuePairs', 'Show Proposed Key Value Pairs')
-          +MenuItem('otherLanguages', 'Other languages')
+
       br
       div.row
         div.container-fluid
