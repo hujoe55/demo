@@ -10,3 +10,7 @@ a {
 .form-group span {
   border: none;
 }
+
+a.nav-link {
+  font-size: 24px;
+}
